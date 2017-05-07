@@ -158,7 +158,7 @@ public class TelopDrive extends OpMode {
     }
 
     /*
-     * Code to run ONCE after the driver hits STOP
+     * Code to run ONCE after the driver hits  STOP
      */
     @Override
     public void stop() {
