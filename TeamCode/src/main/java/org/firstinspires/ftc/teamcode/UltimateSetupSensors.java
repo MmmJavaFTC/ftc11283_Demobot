@@ -15,22 +15,22 @@ public class UltimateSetupSensors {
 
     /* Public sensor members. */
     /* Touch Sensor */
-    public ModernRoboticsTouchSensor touchSensorFront    = null;
-    public ModernRoboticsTouchSensor touchSensorArmPush  = null;
-    public ModernRoboticsTouchSensor touchSensorArmIn    = null;
-    public ModernRoboticsTouchSensor touchSensorArmOut   = null;
+    public ModernRoboticsTouchSensor touchSensorBallArm    = null;
+    public ModernRoboticsTouchSensor touchSensorCandyArm  = null;
+  //  public ModernRoboticsTouchSensor touchSensorArmIn    = null;
+    //public ModernRoboticsTouchSensor touchSensorArmOut   = null;
 
     //ODS *Addon
-    public OpticalDistanceSensor lightSensor = null;
+  //  public OpticalDistanceSensor lightSensor = null;
 
     //MRColor Sensor *Addon
-    public ColorSensor colorSensor = null;
+    public ColorSensor colorSensorHopper = null;
 
     // MRGyro sensor, NOTE: will be set back to NULL if problems with initialization or calibration
-    public ModernRoboticsI2cGyro gyroSensor = null;
+ //   public ModernRoboticsI2cGyro gyroSensor = null;
 
-    public ModernRoboticsI2cRangeSensor LeftDistanceSensor = null;
-    public ModernRoboticsI2cRangeSensor RightDistanceSensor = null;
+   // public ModernRoboticsI2cRangeSensor LeftDistanceSensor = null;
+    //public ModernRoboticsI2cRangeSensor RightDistanceSensor = null;
 
     /* local members. */
     HardwareMap hwMap =  null;
@@ -45,15 +45,17 @@ public class UltimateSetupSensors {
         // Save reference to Hardware map
         hwMap = ahwMap;
 
-        LeftDistanceSensor = (ModernRoboticsI2cRangeSensor) hwMap.ultrasonicSensor.get("LeftSonicSensor");
-        RightDistanceSensor = (ModernRoboticsI2cRangeSensor) hwMap.ultrasonicSensor.get("RightSonicSensor");
+   //     LeftDistanceSensor = (ModernRoboticsI2cRangeSensor) hwMap.ultrasonicSensor.get("LeftSonicSensor");
+     //   RightDistanceSensor = (ModernRoboticsI2cRangeSensor) hwMap.ultrasonicSensor.get("RightSonicSensor");
 
 
 
 
-        //Define touchSensorFront
-        //touchSensorFront    = (ModernRoboticsDigitalTouchSensor) hwMap.touchSensor.get("touchFront");
+       // Define touchSensorBallArm
+        touchSensorBallArm    = (ModernRoboticsTouchSensor) hwMap.touchSensor.get("touchBallArm");
 
+//Define touchSensorCandyArm
+        touchSensorCandyArm    = (ModernRoboticsTouchSensor) hwMap.touchSensor.get("touchCandyArm");
 
         //Define lightSensor & enbale its led
         //lightSensor = hwMap.opticalDistanceSensor.get("lightSensor");
@@ -64,7 +66,7 @@ public class UltimateSetupSensors {
         //colorSensor.enableLed(false); // detect the shining light, not reflected
 
         // get a reference to a Modern Robotics GyroSensor object if available
-        try
+      /*  try
         {
             gyroSensor = (ModernRoboticsI2cGyro) hwMap.gyroSensor.get("gyro");
             gyroSensor.resetZAxisIntegrator();
@@ -73,6 +75,8 @@ public class UltimateSetupSensors {
         {
             gyroSensor = null;
         }
+*/
     }
+
 
 }

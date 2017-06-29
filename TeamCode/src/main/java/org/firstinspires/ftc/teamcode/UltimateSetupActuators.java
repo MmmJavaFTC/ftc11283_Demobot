@@ -28,7 +28,7 @@ public class UltimateSetupActuators
     public DcMotor RearLeft = null;
     public DcMotor RearRight = null;
 
-    //public DcMotor armMotor    = null;
+    public DcMotor CandyMotor    = null;
 
 
     public static final double COUNTS_PER_MOTOR_REV     = 1440;    // eg: TETRIX Motor Encoder
@@ -38,7 +38,7 @@ public class UltimateSetupActuators
     public static final double COUNTS_PER_INCH          = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) / (WHEEL_DIAMETER_INCHES * 3.14159269);
     public static final double INCHES_PER_ANGLE_INPLACE = (11.8 / 90.0); // calibration affected by the distance between the driving wheels
     public static final double INCHES_PER_ANGLE_DRAG    = ( (WHEEL_SEPARATION_INCHES * 3.14159269 / 2.0) / 90.0); // calibration affected by the distance between the driving wheels
-
+    public static final double CANDYMOTORSPEED          = (1);
     /* local members. */
     HardwareMap hwMap           =  null;
 
@@ -58,14 +58,14 @@ public class UltimateSetupActuators
         RearLeft = hwMap.dcMotor.get("RearLeft_Motor");
         RearRight = hwMap.dcMotor.get("RearRight_Motor");
 
-        //armMotor    = hwMap.dcMotor.get("left_arm");
+        CandyMotor    = hwMap.dcMotor.get("Candy_Motor");
 
         FrontLeft.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         FrontRight.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
         RearLeft.setDirection(DcMotor.Direction.FORWARD);
         RearRight.setDirection(DcMotor.Direction.FORWARD);
 
-        //armMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        CandyMotor.setDirection(DcMotor.Direction.FORWARD);
 
         // Set all motors to zero power
         FrontLeft.setPower(0);
@@ -73,7 +73,7 @@ public class UltimateSetupActuators
         RearLeft.setPower(0);
         RearRight.setPower(0);
 
-        //armMotor.setPower(0);
+        CandyMotor.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
@@ -82,7 +82,7 @@ public class UltimateSetupActuators
         RearLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         RearRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        //armMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        CandyMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Define and initialize ALL installed servos.
         // -- none at this time
