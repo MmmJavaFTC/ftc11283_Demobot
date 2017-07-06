@@ -68,7 +68,7 @@ public class UltimateTelopDriveWithSensors extends OpMode
     private static final double Deadzone = 0.1;
 
     //This allows us to track the candy and ball arms
-    private boolean BallArmPressed = false ;
+    //private boolean BallArmPressed = false ;
 
 
 
@@ -235,19 +235,20 @@ public class UltimateTelopDriveWithSensors extends OpMode
     else
         if (sensors.touchSensorCandyArm.isPressed()) {
             robot.CandyMotor.setPower(0);
-        }
+       }
 
-        //robot.rightMotor.setPower(right);
+    // robot.rightMotor.setPower(right);
 
 
 
         // Send telemetry message to signify robot running;
 //        telemetry.addData("claw",  "Offset = %.2f", clawOffset);
+      //  telemetry.addData("Light Level ", sensors.lightSensor.getLightDetected() );
         telemetry.addData("Vertical",       "%.2f",     Vertical);
         telemetry.addData("Horizontal",      "%.2f",     Horizontal);
         telemetry.addData("left trig",  "%.2f",     LeftRotate);
         telemetry.addData("right trig",  "%.2f",    RightRotate);
-        telemetry.addData("Is X pressed" , "%b" , PressedX);
+       // telemetry.addData("Is X pressed" , "%b" , PressedX);
         telemetry.addData("Mode is" , "%s" , Mode);
     }
 
